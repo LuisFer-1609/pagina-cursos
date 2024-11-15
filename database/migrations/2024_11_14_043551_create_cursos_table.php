@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->unsignedBigInteger('instructor_id');
-            $table->foreign('instructor')->references('id')->on('users');
+            $table->foreign('instructor_id')->references('id')->on('users');
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria')->references('id')->on('categoria_cursos');
+            $table->foreign('categoria_id')->references('id')->on('categoria_cursos');
             $table->unsignedBigInteger('estado_id');
-            $table->foreign('estado')->references('id')->on('estado_cursos');
+            $table->foreign('estado_id')->references('id')->on('estado_cursos');
             $table->string('imagen');
             $table->timestamps();
         });
