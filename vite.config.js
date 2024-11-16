@@ -9,7 +9,7 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: "192.168.101.28", // Hace que el servidor esté disponible en la red
+        host: "172.20.10.2", // Hace que el servidor esté disponible en la red
         port: 3000,
     },
 });

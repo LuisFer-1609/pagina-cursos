@@ -12,7 +12,16 @@
 
 <body>
     <x-header></x-header>
-
+    <main class="flex-1 p-2">
+        <section>
+            <h2 class="font-semibold text-2xl">Cursos recién lanzados</h2>
+            <article class="flex gap-4">
+                @foreach ($cursos as $curso)
+                    <x-card-curso :imagen="$curso->imagen" :titulo="$curso->titulo" :descripcion="$curso->descripcion"></x-card-curso>
+                @endforeach
+            </article>
+        </section>
+    </main>
 </body>
 
 </html>

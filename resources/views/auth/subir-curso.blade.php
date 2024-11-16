@@ -18,6 +18,11 @@
             <input type="file" name="portada" id="">
             <x-label-form :text="'Título del curso'" :type="'text'" :name="'titulo'"></x-label-form>
             <x-textarea-form :text="'Descripción del curso'" :type="'textarea'" :name="'descripcion'"></x-textarea-form>
+            <select name="categoria" id="">
+                @foreach ($categorias as $categoria)
+                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
+                @endforeach
+            </select>
             <button class="rounded-lg px-4 py-2 text-white bg-gray-900" type="submit">Enviar</button>
         </form>
     </main>

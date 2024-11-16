@@ -1,9 +1,16 @@
 <?php
 
+use App\Constantes as AppConstantes;
+use App\Constantes\Constantes as ConstantesConstantes;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubirCursoController;
-use App\Models\Roles;
 use Illuminate\Support\Facades\Route;
+use App\Models\CategoriaCursos;
+use App\Models\Roles;
+use App\Constantes\Constantes;
+use App\Models\Curso;
+use App\Models\EstadoCurso;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +24,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $cursos = Curso::with('estado')->where('estado_id', 1)->get();
+    // return dd($cursos);
+    return view('welcome', ['cursos' => $cursos]);
 });
 
 Route::get('/dashboard', function () {
@@ -34,11 +43,30 @@ Route::middleware('auth')->group(function () {
 });
 
 // Route::get('/crear-rol', function () {
-//     Roles::create([
-//         'rol' => 'usuario'
-//     ]);
+//     $roles = ConstantesConstantes::ROLES_USUARIO;
+//     foreach ($roles as $rol) {
+//         Roles::create(['rol' => $rol]);
+//     }
 
-//     return response()->json(['response' => 'Rol creado correctamente'], 201);
+//     return response()->json(['response' => 'Roles creado correctamente'], 201);
 // });
+
+// Route::get('/crear-categoria', function () {
+//     $categorias = ConstantesConstantes::CATEGORIAS_CURSOS;
+//     foreach ($categorias as $categoryName) {
+//         CategoriaCursos::create(['categoria' => $categoryName]);
+//     }
+
+//     return response()->json(['response' => 'Categorías creadas correctamente'], 201);
+// });
+
+Route::get('/crear-estado-curso', function () {
+    $estados = ConstantesConstantes::ESTADOS_CURSO;
+    foreach ($estados as $estado) {
+        EstadoCurso::create(['estado' => $estado]);
+    }
+
+    return response()->json(['response' => 'Estados creados correctamente'], 201);
+});
 
 require __DIR__ . '/auth.php';

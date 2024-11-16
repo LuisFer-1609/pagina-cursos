@@ -22,9 +22,9 @@
     }
 </style>
 
-<header class="relative">
+<header class="relative w-full">
     <input class="peer/menu hidden" type="checkbox" name="" id="menu">
-    <label class="relative z-[2] inline-flex p-4" for="menu">
+    <label class="inline-flex md:hidden relative z-[2] p-4" for="menu">
         <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -35,13 +35,13 @@
     </label>
 
     <nav
-        class="absolute left-[-100%] top-0 z-[1] peer-checked/menu:left-0 transition-all duration-300 w-full min-h-screen flex flex-col justify-between items-center bg-gray-200">
+        class="absolute left-[-100%] top-0 z-[1] peer-checked/menu:left-0 transition-all duration-300 md:static w-full min-h-screen md:min-h-min flex flex-col md:flex-row justify-between items-center bg-gray-200 md:p-2">
         <div></div>
         @if (auth()->check())
             <span>
                 {{ auth()->user()->name }}
             </span>
-            <a class="w-[90%] flex justify-center items-center gap-2 bg-gray-900 text-white py-2 rounded-lg mb-2"
+            <a class="w-[90%] md:w-auto flex justify-center items-center gap-2 bg-gray-900 text-white py-2 rounded-lg mb-2 md:mb-2 p-2"
                 href="{{ url('subir-curso') }}">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     fill="none">
@@ -65,7 +65,7 @@
                 Subir curso
             </a>
         @else
-            <a class="w-[90%] flex justify-center items-center gap-2 bg-gray-900 text-white py-2 rounded-lg mb-2"
+            <a class="w-[90%] md:w-auto flex justify-center items-center gap-2 bg-gray-900 text-white py-2 rounded-lg mb-2 md:mb-0 p-2"
                 href="{{ url('/login') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                     viewBox="0 0 24 24">
