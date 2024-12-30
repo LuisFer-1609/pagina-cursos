@@ -12,11 +12,11 @@
                 siempre quisiste
                 tomar
             </h1>
-            <x-label-form :text="'Nombre de usuario'" :type="'text'" :name="'name'"></x-label-form>
-            <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'"></x-label-form>
-            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'"></x-label-form>
+            <x-label-form :text="'Nombre de usuario'" :type="'text'" :name="'name'" :id="'nameForm'"></x-label-form>
+            <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'" :id="'emailForm'"></x-label-form>
+            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'" :id="'passwordForm'"></x-label-form>
             <div class="">
-                <x-label-form :text="'Confirmar contraseña'" :type="'password'" :name="'password_confirmation'"></x-label-form>
+                <x-label-form :text="'Confirmar contraseña'" :type="'password'" :name="'password_confirmation'" :id="'confPasswordForm'"></x-label-form>
                 <a class="float-right font-semibold text-blue-600 underline -mt-2" href="{{ url('/login') }}">¿Ya tienes una
                     cuenta?</a>
             </div>

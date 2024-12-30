@@ -22,9 +22,9 @@
             siempre quisiste
             tomar
         </h1>
-        <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'"></x-label-form>
+        <x-label-form :text="'Correo electrónico'" :type="'email'" :name="'email'" :id="'emailForm'"></x-label-form>
         <div>
-            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'"></x-label-form>
+            <x-label-form :text="'Contraseña'" :type="'password'" :name="'password'" :id="'passwordForm'"></x-label-form>
             <a class="float-right font-semibold text-blue-600 underline -mt-2" href="{{ url('/register') }}">¿Aún no
                 tienes una cuenta?</a>
         </div>

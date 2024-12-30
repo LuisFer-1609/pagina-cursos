@@ -1,6 +1,6 @@
-@props(['text', 'type', 'name'])
+@props(['text', 'type', 'name', 'id'])
 
-<label class="relative flex flex-col py-4" for="">
+<label class="relative flex flex-col py-4" for="" id="{{ $id }}">
     <input
         class="relative z-[1] peer/nombre border-0 outline outline-1 outline-gray-700 text-[15px] bg-transparent rounded-lg py-4 ps-[20px]"
         type="{{ $type }}" placeholder=" " name="{{ $name }}" />

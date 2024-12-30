@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-    $cursos = Curso::with('estado')->where('estado_id', 1)->get();
+    $cursos = Curso::with('estado')->where('estado_id', 2)->get();
     // return dd($cursos);
     return view('welcome', ['cursos' => $cursos]);
 });
@@ -33,8 +33,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/subir-curso', [SubirCursoController::class, 'subirCurso']);
-Route::post('/post-curso', [SubirCursoController::class, 'postCurso']);
+Route::middleware('auth')->group(function () {
+    Route::prefix('/curso')->group(function () {
+        Route::get('/subir-curso', [SubirCursoController::class, 'subirCurso']);
+        Route::post('/post-curso', [SubirCursoController::class, 'postCurso']);
+        Route::get('/cursos-pendientes', [SubirCursoController::class, 'cursosPendientes']);
+        Route::get('/verificar-cursos/{idCurso}', [SubirCursoController::class, 'verificarCursos']);
+        Route::post('/verificar-curso', [SubirCursoController::class, 'verificarCurso']);
+    });
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,23 +50,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/crear-rol', function () {
-//     $roles = ConstantesConstantes::ROLES_USUARIO;
-//     foreach ($roles as $rol) {
-//         Roles::create(['rol' => $rol]);
-//     }
+Route::get('/crear-rol', function () {
+    $roles = ConstantesConstantes::ROLES_USUARIO;
+    foreach ($roles as $rol) {
+        Roles::create(['rol' => $rol]);
+    }
 
-//     return response()->json(['response' => 'Roles creado correctamente'], 201);
-// });
+    return response()->json(['response' => 'Roles creado correctamente'], 201);
+});
 
-// Route::get('/crear-categoria', function () {
-//     $categorias = ConstantesConstantes::CATEGORIAS_CURSOS;
-//     foreach ($categorias as $categoryName) {
-//         CategoriaCursos::create(['categoria' => $categoryName]);
-//     }
+Route::get('/crear-categoria', function () {
+    $categorias = ConstantesConstantes::CATEGORIAS_CURSOS;
+    foreach ($categorias as $categoryName) {
+        CategoriaCursos::create(['categoria' => $categoryName]);
+    }
 
-//     return response()->json(['response' => 'Categorías creadas correctamente'], 201);
-// });
+    return response()->json(['response' => 'Categorías creadas correctamente'], 201);
+});
 
 Route::get('/crear-estado-curso', function () {
     $estados = ConstantesConstantes::ESTADOS_CURSO;

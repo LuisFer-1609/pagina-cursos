@@ -22,4 +22,9 @@ class Curso extends Model
     {
         return $this->belongsTo(CategoriaCursos::class);
     }
+
+    public function lecciones(): BelongsTo
+    {
+        return $this->belongsTo(CategoriaCursos::class);
+    }
 }
