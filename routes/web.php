@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
-    $cursos = Curso::with('estado')->where('estado_id', 2)->get();
+    $cursos = Curso::with('estado')->where('estado_id', 1)->get();
     // return dd($cursos);
     return view('welcome', ['cursos' => $cursos]);
 });

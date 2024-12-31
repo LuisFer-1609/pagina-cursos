@@ -12,13 +12,13 @@
 
 <body>
     <x-header></x-header>
-    <main class="max-w-[1400px] p-4">
+    <main class="max-w-[1000px] p-4">
         <form class="w-full md:w-[50%] flex flex-col gap-3 justify-start" id="formSubirCurso">
             @csrf
             <div class="flex flex-col">
                 <h2 class="font-semibold text-xl">Sube tu portada</h2>
                 <label
-                    class="relative w-full min-h-[200px] flex flex-col items-center justify-center border-2 border-dashed border-gray-300 hover:border-blue-400 hover:cursor-pointer rounded-[16px]"
+                    class="w-full min-h-[200px] flex flex-col items-center justify-center border-2 border-dashed border-gray-300 hover:border-blue-400 hover:cursor-pointer rounded-[16px]"
                     id="dragDrop" for="" id="portadaForm">
                     <div class="font-semibold flex flex-col items-center">
                         <x-image-plus-icon></x-image-plus-icon>

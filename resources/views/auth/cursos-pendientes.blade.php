@@ -2,7 +2,8 @@
 
 @section('main')
     <main class="w-full">
-        <article class="max-w-[1400px] w-[90%] m-auto flex flex-col gap-4">
+        <article class="max-w-[800px] w-[90%] m-auto flex flex-col gap-4">
+            <h1 class="font-semibold text-2xl">Cursos pendientes por revisar</h1>
             @foreach ($cursos as $curso)
                 <div class="flex gap-5 rounded-lg shadow-lg overflow-hidden">
                     <div class="max-h-[150px] w-[250px] overflow-hidden">

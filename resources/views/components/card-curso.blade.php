@@ -1,8 +1,8 @@
 @props(['imagen', 'titulo', 'descripcion'])
 
-<a class="max-w-[300px] shadow rounded overflow-hidden" href="">
-    <div class="overflow-hidden">
-        <img class="w-full h-auto object-cover aspect-video hover:scale-[1.1] transition duration-300 overflow-hidden"
+<a class="min-w-[300px] max-w-[300px] shadow rounded overflow-hidden" href="">
+    <div class="">
+        <img class="w-full h-auto object-cover aspect-video hover:scale-[1.1] transition duration-300 overflow-x-hidden scroll-smooth snap-x snap-mandatory"
             width="400" src="{{ asset('storage/' . $imagen) }}" alt="Portada del curso">
     </div>
     <div class="p-2">
